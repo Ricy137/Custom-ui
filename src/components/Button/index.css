@@ -1,0 +1,218 @@
+@unocss;
+/** common **/
+.button {
+  @apply relative inline-flex justify-center items-center whitespace-nowrap outline-none transition-colors transition-opacity no-underline cursor-pointer;
+}
+
+/* color */
+.button--default {
+  @apply bg-#FFFFFF border-1px border-solid border-#DCDEE0 text-14px leading-22px text-#323233;
+}
+
+.button--simpleOutlined.button--orange {
+  @apply bg-#FFFFFF font-normal text-12px leading-22px text-#FFA14A border-1px border-#FFA14A rounded-8px hover:bg-#FFA14A hover:text-#FFFFFF;
+}
+.button--outlined.button--orange {
+  @apply bg-#FFA14A text-#ffffff border-1px !border-#000000 !rounded-8px hover:bg-#F48A28;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.button--outlined.button--red {
+  @apply bg-#FF5100 text-#ffffff border-1px !border-#000000 !rounded-8px hover:bg-#F48A28;
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.button--outlined.button--black {
+  @apply bg-#000000 text-#FFA14A border-1px !border-#ffffff !rounded-8px;
+  filter: drop-shadow(4px 4px 0px #ffffff);
+}
+
+button.button {
+  flex: 0 0 auto;
+}
+
+button.absolute {
+  position: absolute;
+}
+
+.button--fullWidth {
+  @apply flex w-full;
+}
+
+.button--mini {
+  @apply text-12px leading-20px h-30px px-16px rounded-4px;
+}
+
+.button--small {
+  @apply text-14px leading-22px h-32px px-16px rounded-2px;
+}
+
+.button--normal {
+  @apply text-24px h-64px px-80px leading-32px rounded-8px;
+}
+
+.button--medium {
+  @apply text-[28px] h-[60px] px-[72px] rounded-16px leading-60px;
+}
+
+/* @media screen and (max-width: 767px) {
+  .button--mini {
+    @apply h-[32px];
+  }
+
+  .button--normal {
+    @apply px-18px text-16px h-40px leading-40px rounded-8px;
+  }
+
+  .button--medium {
+    @apply px-18px text-16px h-40px leading-40px rounded-8px;
+  }
+} */
+
+/** disabled & loading **/
+.button.is-disabled,
+.button.is-loading {
+  @apply pointer-events-none;
+}
+
+.is-loading {
+  @apply hover:opacity-90;
+}
+
+button.button.is-disabled:not(.is-loading),
+a.button.is-disabled:not(.is-loading) {
+  @apply bg-grey-normal-hover bg-opacity-50 text-grey-normal border-transparent;
+}
+
+a.button--text.is-disabled,
+button.button--text.is-disabled {
+  @apply bg-transparent text-#A9ABB2;
+}
+
+/* contained button */
+.button--contained {
+  @apply border-none;
+}
+
+.button--contained.button--purple {
+  @apply bg-purple-normal text-grey-normal;
+}
+
+.button--contained.button--gray {
+  @apply bg-#F7F8FA text-#C1C2C5;
+}
+
+.button--contained.button--orange {
+  @apply bg-#FFA14A text-12px leading-22px text-#FFFFFF hover:bg-#F48A28;
+}
+
+.button--contained.button--purple:hover,
+.button--contained.button--purple:focus-visible {
+  @apply bg-purple-normal-hover text-grey-normal-hover;
+}
+
+.button--contained.button--gradient {
+  @apply text-#110F1B;
+  background: linear-gradient(
+    94.26deg,
+    #6667ab 0%,
+    #f0eee9 51.35%,
+    #96d8de 100%
+  );
+}
+
+.button--contained.button--gradient:hover,
+.button--contained.button--gradient:focus-visible {
+  background: linear-gradient(
+    94.26deg,
+    #6667ab 0%,
+    #f0eee9 51.35%,
+    #96d8de 100%
+  );
+}
+
+/* text button */
+.button--text {
+  @apply border-none;
+}
+
+.button--text.button--purple {
+  @apply bg-transparent bg-opacity-100 text-purple-normal;
+}
+
+.button--text.button--purple:hover,
+.button--text.button--purple:focus-visible {
+  @apply bg-purple-normal bg-opacity-10 text-purple-normal-hover;
+}
+
+.button--text.button--white {
+  @apply bg-transparent bg-opacity-100 text-grey-normal;
+}
+
+.button--text.button--white:hover,
+.button--text.button--white:focus-visible {
+  @apply bg-grey-normal bg-opacity-10 text-grey-normal-hover;
+}
+
+/* outlined button */
+.button--outlined {
+  @apply bg-transparent;
+}
+
+.button--outlined.button--purple {
+  @apply border border-purple-normal text-grey-normal;
+}
+
+.button--outlined.button--purple:hover,
+.button--outlined.button--purple:focus-visible {
+  @apply border-purple-normal-hover text-grey-normal-hover;
+}
+
+.button__content {
+  @apply inline-flex items-center h-full;
+}
+
+/** loading **/
+.is-loading > .button__content,
+.is-loading > .button__icon {
+  @apply opacity-0;
+}
+
+.button__loading {
+  @apply !absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-1.6em;
+}
+
+/** start end icon **/
+.button__icon + .button__content {
+  @apply ml-[.25em];
+}
+
+.button__content + .button__icon {
+  @apply ml-[.25em];
+}
+
+.button__icon {
+  @apply flex flex-col justify-center w-fit h-fit;
+}
+
+.button__icon > svg {
+  @apply w-[1.6em] h-[1.6em];
+}
+
+/** click effect **/
+.button::after {
+  @apply absolute inset-0 rounded-[inherit] opacity-0;
+  box-shadow: 0 0 0 6px currentColor;
+  transition: 0.4s;
+  content: "";
+}
+
+.button.button:active:not(.button--text):not(.button--link)::after {
+  @apply opacity-60;
+  box-shadow: none;
+  transition: 0s;
+}
+
+.button--contained.button--purple::after {
+  box-shadow: 0 0 0 6px #d0d0e5;
+}

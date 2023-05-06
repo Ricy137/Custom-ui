@@ -1,8 +1,9 @@
-import { defineConfig, presetWind, presetIcons } from "unocss";
+import { defineConfig, presetWind, presetIcons, presetUno } from "unocss";
 
 export default defineConfig({
   presets: [
     presetWind(),
+    presetUno(),
     presetIcons({
       prefix: "i-",
       extraProperties: {
