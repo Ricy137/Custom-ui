@@ -11,6 +11,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.24.0",
     "@react-spring/web": "^9.7.2",
     "@types/node": "20.0.0",
     "@types/react": "18.2.5",
