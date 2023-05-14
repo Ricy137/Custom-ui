@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useRef, useState, PropsWithChildren, SVGAttributes } from "react";
 import {
   useFloating,
   UseFloatingOptions,
@@ -16,24 +16,35 @@ import {
   UseTransitionStylesProps,
 } from "@floating-ui/react";
 
-interface PopoverContentProps {
-  Anchor: React.ReactNode | Function;
+import { Props } from "@floating-ui/react/src/components/FloatingArrow";
+
+interface ArrowProps
+  extends Omit<Props, "context">,
+    SVGAttributes<SVGSVGElement> {
+  height?: number;
+  width?: number;
+  strokeWidth?: number;
+}
+
+interface PopoverContentProps extends PropsWithChildren {
   Content: React.ReactNode | Function;
   options?: Partial<UseFloatingOptions>;
   trigger: "click" | "hover" | "focus";
   hasArrow?: boolean;
   offsetOptions?: OffsetOptions;
   transitionStylesProps?: UseTransitionStylesProps;
+  arrowProps?: ArrowProps;
 }
 
 const PopoverContent: React.FC<PopoverContentProps> = ({
-  Anchor,
   Content,
   options,
   trigger,
   hasArrow,
+  arrowProps,
   offsetOptions,
   transitionStylesProps,
+  children,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const arrowRef = useRef(null);
@@ -65,12 +76,14 @@ const PopoverContent: React.FC<PopoverContentProps> = ({
     triggerOption(),
   ]);
 
-  const { isMounted, styles } = useTransitionStyles(context);
+  const { isMounted, styles } = useTransitionStyles(context, {
+    ...transitionStylesProps,
+  });
 
   return (
     <>
       <div ref={refs.setReference} {...getReferenceProps()}>
-        {typeof Anchor === "function" ? <Anchor /> : Anchor}
+        {children}
       </div>
       {isMounted && (
         <div
@@ -78,7 +91,9 @@ const PopoverContent: React.FC<PopoverContentProps> = ({
           style={{ ...floatingStyles, ...styles }}
           {...getFloatingProps()}
         >
-          {hasArrow && <FloatingArrow ref={arrowRef} context={context} />}
+          {hasArrow && (
+            <FloatingArrow ref={arrowRef} context={context} {...arrowProps} />
+          )}
           {typeof Content === "function" ? <Content /> : Content}
         </div>
       )}
