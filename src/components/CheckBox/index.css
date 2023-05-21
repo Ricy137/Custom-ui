@@ -1,0 +1,13 @@
+.custom-input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-color: #dcdee0;
+  @apply cursor-pointer;
+}
+
+input.custom-input:checked::before {
+  content: "\2713";
+  color: #fff;
+  @apply:flex flex-col items-center justify-center;
+}

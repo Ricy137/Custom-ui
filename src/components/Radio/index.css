@@ -1,0 +1,7 @@
+.radio-custom {
+  @apply w-16px h-16px bg-#fff rounded-8px cursor-pointer;
+}
+
+input.radio-custom:checked::before {
+  @apply bg-#FFA14A;
+}

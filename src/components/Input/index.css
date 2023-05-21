@@ -1,0 +1,74 @@
+.input-wrapper {
+    @apply relative w-full h-fit text-grey-normal;
+  }
+  
+  .input {
+    @apply w-full overflow-ellipsis bg-transparent border-none transition-colors focus:outline-none caret-#323233 placeholder-#C1C2C5 font-normal;
+    color: inherit;
+    font-size: inherit;
+  }
+  
+  .input-wrapper.input--small {
+    @apply text-14px;
+  }
+  
+  .input-wrapper.input--normal {
+    @apply text-16px;
+  }
+  
+  .input-wrapper.input--medium {
+    @apply text-22px;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .input-wrapper.input--normal {
+      @apply text-16px;
+    }
+  
+    .input-wrapper.input--medium {
+      @apply text-16px;
+    }
+  }
+  
+  .input-wrapper.input--small > input {
+    @apply pl-.5em h-32px leading-32px;
+  }
+  
+  .input-wrapper.input--normal > input {
+    @apply pl-.5em h-48px leading-48px;
+  }
+  
+  .input-wrapper.input--medium > input {
+    @apply pl-.5em h-92px leading-92px;
+  }
+  
+  .prefix-icon ~ .input {
+    @apply !pl-1.9em;
+  }
+  
+  .prefix-icon ~ .input.outer-placeholder + * {
+    @apply left-1.9em;
+  }
+  
+  .input-error {
+    @apply absolute right-[2px] -top-[20px] text-[12px] text-red-100 opacity-0 transition-opacity duration-100;
+  }
+  
+  .input:invalid ~ .input-error {
+    @apply opacity-100;
+  }
+  
+  .input:not(:placeholder-shown) + .clear-icon {
+    @apply flex;
+  }
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    appearance: none !important;
+    margin: 0;
+  }
+  
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  
