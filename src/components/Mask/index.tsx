@@ -9,15 +9,28 @@ export type Props = OverWrite<
   {
     open: boolean;
   }
->;
+> & {
+  transitionConfig?: object;
+};
 
-const Mask = ({ open, className, style, ...props }: Props) => {
-  const transitions = useTransition(open, {
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    reverse: open,
-  });
+const Mask = ({
+  open,
+  className,
+  transitionConfig,
+  style,
+  ...props
+}: Props) => {
+  const transitions = useTransition(
+    open,
+    transitionConfig
+      ? { ...transitionConfig }
+      : {
+          from: { opacity: 0 },
+          enter: { opacity: 1 },
+          leave: { opacity: 0 },
+          reverse: open,
+        }
+  );
 
   return transitions(
     (styles, item) =>

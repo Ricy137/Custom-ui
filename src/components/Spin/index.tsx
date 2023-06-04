@@ -7,21 +7,23 @@ import "./index.css";
 
 interface SpinProps extends HTMLAttributes<HTMLDivElement> {
   svg?: ReactNode;
-  type?: "ring" | "bounce" | "flip";
+  // type?: "ring" | "bounce" | "flip";
   springConf?: object;
 }
 
 const Spin: React.FC<SpinProps> = ({
   className,
-  type = "ring",
+  // type = "ring",
   springConf,
   svg,
+  ...props
 }) => {
   const springs = useSpring(springConf ? { ...springConf } : { ...rotate });
   return (
     <animated.span
       style={{ ...springs }}
       className={cx("relative flex justify-center items-center", className)}
+      {...props}
     >
       {svg ? (
         <>{svg}</>

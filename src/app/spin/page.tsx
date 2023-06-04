@@ -6,6 +6,7 @@ const SpinPage: React.FC = () => {
   return (
     <div className="w-64px h-64px">
       <Spin svg={<StarIcon />} springConf={zoomNRotate} />
+      <Spin />
     </div>
   );
 };
