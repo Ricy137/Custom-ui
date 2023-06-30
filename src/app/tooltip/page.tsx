@@ -1,5 +1,5 @@
 "use client";
-import PopoverContent from "@/components/Popper";
+import PopoverContent from "@/components/Popover";
 
 const TooltipPage: React.FC = () => {
   return (

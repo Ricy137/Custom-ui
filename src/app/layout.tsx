@@ -1,6 +1,5 @@
 import "./globals.css";
 import "/uno.css";
-import RecoilRootWrapper from "./RecoilRootWrapper";
 
 export const metadata = {
   title: "Custome UI",
@@ -14,11 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <RecoilRootWrapper>
-          {children}
-        </RecoilRootWrapper>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

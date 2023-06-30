@@ -57,7 +57,13 @@ const Input = forwardRef<HTMLInputElement, Props>(
     );
 
     return (
-      <div className={cx("input-wrapper", `input--${size}`, wrapperClassName)}>
+      <div
+        className={cx(
+          "input-wrapper border-1px border-solid border-black",
+          `input--${size}`,
+          wrapperClassName
+        )}
+      >
         {prefixIcon && (
           <span
             className={cx(

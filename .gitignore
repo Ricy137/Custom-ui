@@ -1,3 +1,4 @@
 node_modules
 package-lock.json
 .next
+pnpm-lock.yaml

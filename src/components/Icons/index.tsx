@@ -84,3 +84,54 @@ export const FailedIcon: React.FC<IconProps> = ({
     </svg>
   );
 };
+
+export const CommentEllipseIcon: React.FC<IconProps> = ({
+  className,
+  iconClassName,
+  ...props
+}) => {
+  return (
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 28 28"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <circle
+        cx="14"
+        cy="14"
+        r="12"
+        strokeWidth="4"
+        className={cx("stroke-#FFA14A fill-white", iconClassName)}
+      />
+    </svg>
+  );
+};
+
+export const CommentEllipseFocusIcon: React.FC<IconProps> = ({
+  className,
+  iconClassName,
+  ...props
+}) => {
+  return (
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 40 40"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <circle
+        opacity="0.22"
+        cx="20"
+        cy="20"
+        r="16"
+        strokeWidth="8"
+        className={cx("stroke-#F48A28 fill-white", iconClassName)}
+      />
+    </svg>
+  );
+};
