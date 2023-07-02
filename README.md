@@ -4,7 +4,7 @@
 
 ## Why do I start the repo?
 
-React components libraries like MUI is a good option for fast development phase, but they're also large and hard to customize. So I developed custom-ui since a customized component library will provide the minizest size which is good for performance, it will also be much easier for me to customize these components as well as optimize them and it would be a good way to level up my skills as a frontend engineer.
+React components libraries like MUI, ANTD is a good option for fast development phase, but they're also large and hard to customize. So I developed custom-ui since a customized component library will provide the minizest size which is good for performance, it will also be much easier for me to customize these components as well as optimize them and it would be a good way to level up my skills as a frontend engineer.
 
 But work is stressful and in high speed. Fortunately, I managed to get some optimization time for a project and successfully replaced all the MUI components with self made components in that project, which recuded almost 20% of overall JavaScript bundle size (of course which also leads to better performance). I decided to make more advantages of these components and make them more reusable, so I started this repo.
 
