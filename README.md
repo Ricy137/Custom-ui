@@ -3,8 +3,8 @@
 **it's currently just a self-use and experiment project, codes are in a mess and misleading. I will continue developing it and you are welcom finish the README( more like words I told to myself, lol) to learn more about the repo**
 
 ## curent develop plan
-* Updating components 
-* more general Tabs ( December )
+* update current components
+* Solve the conflicts and provide docs 
 
 ## Why do I start the repo?
 
