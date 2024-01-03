@@ -1,7 +1,8 @@
 export default function Home() {
   return (
     <main>
-      <div className="text-48px">123</div>
+      <div className="text-48px">Custom UI</div>
+      <p>docs is developing</p>
     </main>
   );
 }

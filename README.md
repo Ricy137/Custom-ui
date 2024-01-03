@@ -4,7 +4,7 @@
 
 ## curent develop plan
 * update current components
-* Solve the conflicts and provide docs 
+* Solve the conflicts and provide docs( not only for demonstration, but also for self-use, lol)
 
 ## Why do I start the repo?
 
