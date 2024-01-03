@@ -21,8 +21,21 @@ const items = [
 
 const TabsPage: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center gap-x-16px h-100vh">
-      <Tabs items={items} defaultActiveId={1} />
+    <div className="flex flex-col items-center justify-center gap-y-40px min-h-100vh">
+      <div className="py-16px px-24px flex flex-col gap-y-24px bg-#ffffff rounded-16px border border-[rgba(235,237,240,1)] border-dashed">
+        <div>Default style</div>
+        <Tabs items={items} defaultActiveId={1} />
+      </div>
+      <div className="py-16px px-24px flex flex-col gap-y-24px bg-#ffffff rounded-16px border border-[rgba(235,237,240,1)] border-dashed">
+        <div>Customized style</div>
+        <Tabs
+          navClassName="!border-0px"
+          navItemClassName="!mr-0px px-16px"
+          activeNavItemClassName="!text-#ffffff bg-[rgba(4,90,254,1)] rounded-20px"
+          items={items}
+          defaultActiveId={1}
+        />
+      </div>
     </div>
   );
 };

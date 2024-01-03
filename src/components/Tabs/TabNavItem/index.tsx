@@ -14,12 +14,13 @@ const TabNavItem: React.FC<TabNavItemProps> = ({
   title,
   activeId,
   navItemClassName,
-  activeNavItemClassName = 'text-#FFA14A border-b-2px border-#FFA14A border-b-solid',
+  activeNavItemClassName = '!text-#FFA14A border-b-2px border-#FFA14A border-b-solid',
   setActiveId,
 }) => {
   const handleClick = useCallback(() => {
     setActiveId(id);
   }, []);
+
   return (
     <div
       className={cx(

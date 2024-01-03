@@ -23,11 +23,11 @@ interface TabsProps {
 const Tabs: React.FC<TabsProps> = ({
   items,
   defaultActiveId,
-  navClassName = 'flex flex-row h-36px border-b-1px border-b-solid border-#EBEDF0',
+  navClassName,
   navItemClassName,
   activeNavItemClassName,
   bodyClassName,
-  wrapperClassName = 'flex flex-col',
+  wrapperClassName,
   onTabChange,
 }) => {
   const [activeId, setActiveId] = useState(defaultActiveId);
@@ -36,8 +36,13 @@ const Tabs: React.FC<TabsProps> = ({
     onTabChange?.(id);
   }, []);
   return (
-    <div className={wrapperClassName}>
-      <div className={navClassName}>
+    <div className={cx('flex flex-col', wrapperClassName)}>
+      <div
+        className={cx(
+          'flex flex-row h-36px border-b-1px border-b-solid border-#EBEDF0',
+          navClassName
+        )}
+      >
         {items.map((item) => (
           <TabNavItem
             title={item.title}

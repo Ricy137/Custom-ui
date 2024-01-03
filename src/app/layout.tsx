@@ -1,9 +1,9 @@
-import "./globals.css";
-import "/uno.css";
+import './globals.css';
+import '/uno.css';
 
 export const metadata = {
-  title: "Custome UI",
-  description: "react component library by Ricy",
+  title: 'Custome UI',
+  description: 'react component library by Ricy',
 };
 
 export default function RootLayout({
@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="min-h-100vh">{children}</body>
     </html>
   );
 }
