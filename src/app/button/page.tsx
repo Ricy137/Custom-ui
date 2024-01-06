@@ -1,5 +1,5 @@
-import Button from "@/components/Button";
-import { StarIcon } from "@/components/Icons";
+import Button from '@/components/Button';
+import { StarIcon } from '@/components/Icons';
 
 const ButtonPage: React.FC = () => {
   return (
@@ -24,7 +24,7 @@ const ButtonPage: React.FC = () => {
         <Button fullWidth>fullWidth</Button>
       </div>
       <div>
-        <Button color="white" loading="start">
+        <Button color="white" loading={true}>
           loading
         </Button>
       </div>

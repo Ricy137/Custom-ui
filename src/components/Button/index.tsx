@@ -3,24 +3,24 @@ import React, {
   forwardRef,
   type ReactNode,
   type PropsWithChildren,
-} from "react";
-import cx from "clsx";
-import Spin from "@/components/Spin";
-import renderReactNode from "@/utils/renderReactNode";
-import "./index.css";
+} from 'react';
+import cx from 'clsx';
+import Spin from '@/components/Spin';
+import renderReactNode from '@/utils/renderReactNode';
+import './index.css';
 
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "contained" | "outlined" | "dash" | "text" | "link";
-  color?: "primary" | "danger" | "green" | "white";
-  size?: "mini" | "small" | "medium" | "large";
-  shape?: "rect" | "circle" | "round";
+  variant?: 'contained' | 'outlined' | 'text' | 'link';
+  color?: 'primary' | 'green' | 'white';
+  size?: 'mini' | 'small' | 'medium' | 'large';
+  shape?: 'rect' | 'circle' | 'round';
   fullWidth?: boolean;
-  loading?: boolean | "start" | "end";
+  loading?: boolean;
   icon?: ReactNode;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   href?: string;
-  target?: "_blank" | "_self" | "_parent" | "_top";
+  target?: '_blank' | '_self' | '_parent' | '_top';
 }
 
 const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
@@ -28,10 +28,10 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
     {
       children,
       className,
-      variant = "contained",
-      color = "primary",
-      size = "medium",
-      shape = "rect",
+      variant = 'contained',
+      color = 'primary',
+      size = 'medium',
+      shape = 'rect',
       disabled = false,
       fullWidth = false,
       loading = false,
@@ -43,13 +43,13 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
     _forwardRef
   ) => {
     return createElement(
-      props.href ? "a" : "button",
+      props.href ? 'a' : 'button',
       {
         className: cx(
           `fui-button fui-button--${variant} fui-button--${color} fui-button--${size} fui-button--${shape}`,
-          fullWidth && "fui-button--fullWidth",
-          loading === true && "is-loading",
-          disabled && "is-disabled",
+          fullWidth && 'fui-button--fullWidth',
+          loading && 'is-loading',
+          disabled && 'is-disabled',
           className
         ),
         ref: _forwardRef,
@@ -62,12 +62,12 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
         {children && (
           <div
             className={cx(
-              "flex flex-row h-full",
-              loading && "cursor-not-allowed"
+              'flex flex-row h-full',
+              loading && 'cursor-not-allowed'
             )}
           >
             <div className="w-24px h-24px">
-              {loading === "start" && <Spin className="mr-8px text-1.4em " />}
+              {loading && <Spin className="mr-8px text-1.4em " />}
             </div>
             {children}
           </div>
@@ -78,7 +78,7 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
         {endIcon && (
           <span className="fui-button__icon">{renderReactNode(endIcon)}</span>
         )}
-        {loading === true && <Spin className="fui-button__loading" />}
+        {loading && <Spin className="fui-button__loading" />}
       </>
     );
   }

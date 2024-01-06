@@ -4,7 +4,7 @@
 }
 
 button.fui-button {
-  @apply min-h-24px ;
+  @apply min-h-24px;
   flex: 0 0 auto;
 }
 
@@ -17,20 +17,21 @@ button.absolute {
 }
 
 /* size & shape */
+/* props: width, height, radius, font size, line height*/
 .fui-button--mini {
-  @apply text-[12px] h-[24px] px-[10px] rounded-4px leading-22px ;
+  @apply px-[10px] h-[24px] text-[12px] leading-22px rounded-4px;
 }
 
 .fui-button--small {
-  @apply text-[12px] h-[32px] px-[14px] rounded-4px leading-30px;
+  @apply px-[14px] h-[32px] text-[12px] leading-30px rounded-4px;
 }
 
 .fui-button--medium {
-  @apply text-[14px] h-[36px] px-[18px] rounded-6px leading-34px;
+  @apply px-[18px]  h-[36px] text-[14px] leading-34px rounded-6px;
 }
 
 .fui-button--large {
-  @apply text-[14px] h-[40px] px-[22px] rounded-8px leading-38px;
+  @apply px-[22px]  h-[40px] text-[14px] leading-38px rounded-8px;
 }
 
 /** disabled & loading **/
@@ -39,6 +40,7 @@ button.absolute {
   @apply pointer-events-none;
 }
 
+/* different styles for loading&disable */
 .is-loading {
   @apply hover:opacity-90;
 }
@@ -54,6 +56,7 @@ button.fui-button--text.is-disabled {
 }
 
 /* contained button */
+/* bg, text color */
 .fui-button--contained {
   @apply border-none;
 }
@@ -76,7 +79,9 @@ button.fui-button--text.is-disabled {
   @apply bg-[#3AC170] text-#F1F1F3;
 }
 
-/* outlined dash button */
+/* outlined button */
+/* with border */
+/* border width, border color, text color, bg */
 .fui-button--outlined {
   @apply border-1px;
 }
@@ -99,13 +104,12 @@ button.fui-button--text.is-disabled {
   @apply border-#EBEBED59 text-white bg-#FFFFFF14;
 }
 
-
 .fui-button--outlined.fui-button--green {
   @apply border-#3AC170 text-#3AC170 bg-transparent;
 }
 
 .fui-button--outlined.fui-button--green:hover,
-.fui-button--outlined.fui-button--green:focus-visible{
+.fui-button--outlined.fui-button--green:focus-visible {
   @apply border-#3AC170 text-#3AC170 bg-#3ac1702e;
 }
 
@@ -166,7 +170,9 @@ button.fui-button--text.is-disabled {
   content: '';
 }
 
-.fui-button.fui-button:active:not(.fui-button--text):not(.fui-button--link)::after {
+.fui-button.fui-button:active:not(.fui-button--text):not(
+    .fui-button--link
+  )::after {
   @apply opacity-60;
   box-shadow: none;
   transition: 0s;
@@ -177,5 +183,5 @@ button.fui-button--text.is-disabled {
 }
 
 .fui-button--contained.fui-button--green::after {
-  box-shadow: 0 0 0 6px #3AC170;
+  box-shadow: 0 0 0 6px #3ac170;
 }
