@@ -137,8 +137,8 @@ export default () => (
 
 ```tsx
 /**
- * title: loading
- * desc: when Button loading is true，the button is in loading status, unable to be clicked。
+ * title: loading&disabled
+ * desc: when Button loading is true，the button is in loading status, unable to be clicked, same with disabled. But loading would provide an extra loading style
  */
 import React from 'react';
 import { Button, DownOutlined } from 'custom-ui';
@@ -181,4 +181,18 @@ export default () => (
     </div>
   </>
 );
+```
+
+```tsx
+/**
+ * title: icon
+ * desc: displayed icon when no children is provided
+ */
+```
+
+```tsx
+/**
+ * title: startIcon & endIcon
+ * desc: Button has 2 icon slots：startIcon & endIcon，which can be used to display icons at the start or end of the button。
+ */
 ```
