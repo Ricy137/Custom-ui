@@ -88,7 +88,7 @@ export default () => {
  * desc: Button has 4 sizes：mini | small | medium（default） | large. When fullWidth is true ，it occupies the full width of its parent element。
  */
 import React from 'react';
-import { Button } from 'fluent-ui';
+import { Button } from 'custom-ui';
 
 export default () => (
   <>
@@ -115,7 +115,7 @@ export default () => (
  * TODO: planned feature not supported yet
  */
 import React from 'react';
-import { Button, DownOutlined } from 'fluent-ui';
+import { Button, DownOutlined } from 'custom-ui';
 
 export default () => (
   <>
@@ -141,7 +141,7 @@ export default () => (
  * desc: when Button loading is true，the button is in loading status, unable to be clicked。
  */
 import React from 'react';
-import { Button, DownOutlined } from 'fluent-ui';
+import { Button, DownOutlined } from 'custom-ui';
 
 export default () => (
   <>
@@ -167,7 +167,7 @@ export default () => (
  * desc: when Button's href property is string，will be rendered as link <a/> 。usually used when variant is link ，for users that're used to opening links with right lick。
  */
 import React from 'react';
-import { Button, DownOutlined } from 'fluent-ui';
+import { Button, DownOutlined } from 'custom-ui';
 
 export default () => (
   <>
