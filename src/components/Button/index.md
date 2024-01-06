@@ -175,7 +175,7 @@ export default () => (
       <Button href="https://www.baidu.com" target="_blank">
         Button
       </Button>
-      <Button variant="link" href="https://www.baidu.com" target="_blank">
+      <Button variant="link" href="https://www.google.com" target="_blank">
         Button
       </Button>
     </div>
