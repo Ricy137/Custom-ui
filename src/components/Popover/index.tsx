@@ -1,4 +1,5 @@
-import { useRef, useState, PropsWithChildren, SVGAttributes } from "react";
+'use client';
+import { useRef, useState, PropsWithChildren, SVGAttributes } from 'react';
 import {
   useFloating,
   UseFloatingOptions,
@@ -14,39 +15,44 @@ import {
   OffsetOptions,
   useTransitionStyles,
   UseTransitionStylesProps,
-} from "@floating-ui/react";
-import { Props as HoverProps } from "@floating-ui/react/src/hooks/useHover";
-import { Props as ClickProps } from "@floating-ui/react/src/hooks/useClick";
-import { Props as FocusProps } from "@floating-ui/react/src/hooks/useFocus";
-import { Props as DismissProps } from "@floating-ui/react/src/hooks/useDismiss";
-import { Props } from "@floating-ui/react/src/components/FloatingArrow";
+} from '@floating-ui/react';
+import {
+  UseHoverProps,
+  UseClickProps,
+  UseFocusProps,
+  UseDismissProps,
+  FloatingArrowProps,
+} from '@floating-ui/react';
 
+//Only to be used for interaction Popover
 interface ArrowProps
-  extends Omit<Props, "context">,
+  extends Omit<FloatingArrowProps, 'context'>,
     SVGAttributes<SVGSVGElement> {
   height?: number;
   width?: number;
   strokeWidth?: number;
 }
 
-export type InteractionProps = HoverProps | ClickProps | FocusProps;
+export type InteractionProps = UseHoverProps | UseClickProps | UseFocusProps;
 
 export interface PopoverProps extends PropsWithChildren {
-  Content: React.ReactNode | Function;
+  Content: React.ReactNode;
   options?: Partial<UseFloatingOptions>;
-  trigger: "click" | "hover" | "focus";
+  trigger?: 'click' | 'hover' | 'focus';
+  controledOpen?: boolean;
   hasArrow?: boolean;
   offsetOptions?: OffsetOptions;
   transitionStylesProps?: UseTransitionStylesProps;
   arrowProps?: ArrowProps;
-  interactionProps?: HoverProps | ClickProps | FocusProps;
-  dismissProps?: DismissProps;
+  interactionProps?: UseHoverProps | UseClickProps | UseFocusProps;
+  dismissProps?: UseDismissProps;
 }
 
-const Popper: React.FC<PopoverProps> = ({
+const Popover: React.FC<PopoverProps> = ({
   Content,
   options,
   trigger,
+  controledOpen = true,
   hasArrow,
   arrowProps,
   offsetOptions,
@@ -72,11 +78,11 @@ const Popper: React.FC<PopoverProps> = ({
 
   const triggerOption = () => {
     switch (trigger) {
-      case "click":
+      case 'click':
         return useClick(context, interactionProps);
-      case "focus":
+      case 'focus':
         return useFocus(context, interactionProps);
-      case "hover":
+      case 'hover':
         return useHover(context, interactionProps);
     }
   };
@@ -97,7 +103,7 @@ const Popper: React.FC<PopoverProps> = ({
       <div ref={refs.setReference} {...getReferenceProps()}>
         {children}
       </div>
-      {isOpen && isMounted && (
+      {controledOpen && isOpen && isMounted && (
         <div
           ref={refs.setFloating}
           style={{ ...floatingStyles, ...styles }}
@@ -106,11 +112,11 @@ const Popper: React.FC<PopoverProps> = ({
           {hasArrow && (
             <FloatingArrow ref={arrowRef} context={context} {...arrowProps} />
           )}
-          {typeof Content === "function" ? <Content /> : Content}
+          <>{Content}</>
         </div>
       )}
     </>
   );
 };
 
-export default Popper;
+export default Popover;
