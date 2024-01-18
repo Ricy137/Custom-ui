@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useCallback } from 'react';
 import cx from 'clsx';
 import TabNavItem from './TabNavItem';
@@ -39,7 +40,7 @@ const Tabs: React.FC<TabsProps> = ({
     <div className={cx('flex flex-col', wrapperClassName)}>
       <div
         className={cx(
-          'flex flex-row h-36px border-b-1px border-b-solid border-#EBEDF0',
+          'flex flex-row h-[36px] border-b-[1px] border-b-solid border-[#EBEDF0]',
           navClassName
         )}
       >
@@ -55,7 +56,7 @@ const Tabs: React.FC<TabsProps> = ({
           />
         ))}
       </div>
-      <div className={cx('py-12px w-full', bodyClassName)}>
+      <div className={cx('py-[12px] w-full', bodyClassName)}>
         {items.map((item) => (
           <TabContent
             activeId={activeId}
