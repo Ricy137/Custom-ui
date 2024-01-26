@@ -3,6 +3,7 @@ import React, { useState, useCallback } from 'react';
 import cx from 'clsx';
 import TabNavItem from './TabNavItem';
 import TabContent from './TabContent';
+import './index.css';
 
 export interface Item {
   id: number;
@@ -19,6 +20,7 @@ interface TabsProps {
   activeNavItemClassName?: string;
   bodyClassName?: string;
   onTabChange?: (id: number) => void;
+  type?: 'line' | 'card';
 }
 
 const Tabs: React.FC<TabsProps> = ({
@@ -29,6 +31,7 @@ const Tabs: React.FC<TabsProps> = ({
   activeNavItemClassName,
   bodyClassName,
   wrapperClassName,
+  type = 'line',
   onTabChange,
 }) => {
   const [activeId, setActiveId] = useState(defaultActiveId);
@@ -37,10 +40,16 @@ const Tabs: React.FC<TabsProps> = ({
     onTabChange?.(id);
   }, []);
   return (
-    <div className={cx('flex flex-col', wrapperClassName)}>
+    <div
+      className={cx(
+        'pt-[26px] pb-[11px] px-[14px] flex flex-col rounded-[15px] bg-[#ffffff]',
+        wrapperClassName
+      )}
+    >
       <div
         className={cx(
-          'flex flex-row h-[36px] border-b-[1px] border-b-solid border-[#EBEDF0]',
+          'flex flex-row h-[36px] overflow-hidden',
+          `cui-tab-navwrapper--${type}`,
           navClassName
         )}
       >
@@ -53,10 +62,11 @@ const Tabs: React.FC<TabsProps> = ({
             key={`${item.id}-tab`}
             navItemClassName={navItemClassName}
             activeNavItemClassName={activeNavItemClassName}
+            type={type}
           />
         ))}
       </div>
-      <div className={cx('py-[12px] w-full', bodyClassName)}>
+      <div className={cx('w-full', `cui-tab-body--${type}`, bodyClassName)}>
         {items.map((item) => (
           <TabContent
             activeId={activeId}

@@ -7,6 +7,7 @@ interface TabNavItemProps {
   navItemClassName?: string;
   activeNavItemClassName?: string;
   setActiveId: (id: number) => void;
+  type?: 'line' | 'card';
 }
 
 const TabNavItem: React.FC<TabNavItemProps> = ({
@@ -14,7 +15,8 @@ const TabNavItem: React.FC<TabNavItemProps> = ({
   title,
   activeId,
   navItemClassName,
-  activeNavItemClassName = '!text-#FFA14A border-b-2px border-#FFA14A border-b-solid',
+  activeNavItemClassName,
+  type = 'line',
   setActiveId,
 }) => {
   const handleClick = useCallback(() => {
@@ -24,9 +26,11 @@ const TabNavItem: React.FC<TabNavItemProps> = ({
   return (
     <div
       className={cx(
-        'mr-32px h-full flex items-center text-14px leading-22px text-#595A5B cursor-pointer box-border',
+        'text-[14px] leading-[22px]  cursor-pointer box-border',
+        `cui-tab-navitem--${type}`,
         navItemClassName,
-        id === activeId && activeNavItemClassName
+        id === activeId && activeNavItemClassName,
+        id === activeId && `cui-tab-navitem--${type}-active`
       )}
       onClick={handleClick}
     >
