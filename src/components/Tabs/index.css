@@ -1,40 +1,39 @@
 .cui-tab-navwrapper--line {
-    @apply border-b-[1px] border-[#EBEDF0];
-  }
-  
-  .cui-tab-navitem--line {
-    @apply mr-[32px] h-full flex items-center text-[#595A5B];
-  }
-  
-  .cui-tab-navitem--line-active {
-    @apply !text-[#FFA14A] border-b-[2px] border-[#FFA14A];
-  }
-  
-  .cui-tab-navitem--card {
-    @apply relative px-[27px] pb-[6px] flex items-end text-[#00000] font-semibold rounded-t-[15px] before:absolute before:bottom-0 before:left-[-10.5px] before:content-[''] before:w-[10.5px] before:h-[10.5px] after:absolute after:bottom-0 after:right-[-10.5px] after:content-[''] after:w-[10.5px] after:h-[10.5px] after:rotate-90;
-  }
-  
-  .cui-tab-navitem--card-active {
-    @apply bg-[#BCB4C8];
-  }
-  
-  .cui-tab-body--line {
-    @apply py-[12px];
-  }
-  
-  .cui-tab-navitem--card-active::before {
-    background: radial-gradient(
-      circle at 0 0,
-      transparent 10.5px,
-      #bcb4c8 10.5px
-    );
-  }
-  
-  .cui-tab-navitem--card-active::after {
-    background: radial-gradient(
-      circle at 0 0,
-      transparent 10.5px,
-      #bcb4c8 10.5px
-    );
-  }
-  
+  @apply border-b-[1px] border-[#EBEDF0];
+}
+
+.cui-tab-navitem--line {
+  @apply mr-[32px] h-full flex items-center text-[#595A5B];
+}
+
+.cui-tab-navitem--line-active {
+  @apply !text-[#FFA14A] border-b-[2px] border-[#FFA14A];
+}
+
+.cui-tab-navitem--card {
+  @apply relative px-[27px] pb-[6px] flex items-end text-[#00000] font-semibold rounded-t-[15px] before:absolute before:bottom-0 before:left-[-10.5px] before:content-[''] before:w-[10.5px] before:h-[10.5px] after:absolute after:bottom-0 after:right-[-10.5px] after:content-[''] after:w-[10.5px] after:h-[10.5px] after:rotate-90;
+}
+
+.cui-tab-navitem--card-active {
+  @apply bg-[#BCB4C8];
+}
+
+.cui-tab-body--line {
+  @apply py-[12px];
+}
+
+.cui-tab-navitem--card-active::before {
+  background: radial-gradient(
+    circle at 0 0,
+    transparent 10.5px,
+    #bcb4c8 10.5px
+  );
+}
+
+.cui-tab-navitem--card-active::after {
+  background: radial-gradient(
+    circle at 0 0,
+    transparent 10.5px,
+    #bcb4c8 10.5px
+  );
+}
