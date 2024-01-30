@@ -1,12 +1,15 @@
-"use client";
-import React, { type ReactNode } from "react";
-import cx from "clsx";
-import { uniqueId } from "lodash-es";
-import { create } from "zustand";
-import { CloseIcon } from "../Icons";
-import renderReactNode from "@/utils/renderReactNode";
+'use client';
+import React, { type ReactNode } from 'react';
+import cx from 'clsx';
+import { uniqueId } from 'lodash-es';
+import { useTransition, animated as anm } from '@react-spring/web';
+import { create } from 'zustand';
+import { transitionAnimation } from '@/components/Animation';
+import renderReactNode from '@/utils/renderReactNode';
 
 interface Modal {
+  title: string;
+  headClass?: string;
   content: ReactNode;
   className?: string;
   iconClass?: string;
@@ -25,11 +28,13 @@ const modalStore = create<ModalStore>((set) => ({
   hideModal: () => set({ modal: null }),
 }));
 
-export const showModal = (param: Omit<Modal, "id">) => {
+export const showModal = (param: Omit<Modal, 'id'>) => {
   modalStore.setState({
     modal: {
+      title: param.title,
       content: param.content,
-      className: param.className ?? "",
+      className: param.className ?? '',
+      headClass: param.headClass ?? '',
       id: uniqueId(),
     },
   });
@@ -41,28 +46,28 @@ export const hideModal = () => {
 
 export const ModalRender: React.FC = () => {
   const modal = modalStore((state) => state.modal);
+  const transitions = useTransition(modal, {
+    ...transitionAnimation.zoom,
+  });
 
   if (!modal) return <></>;
-  return (
-    <div className="fixed top-0 right-0 bottom-0 left-0 flex flex-col items-center md:justify-center bg-[rgba(0,0,0,0.6)] z-40">
-      <div
-        className={cx(
-          "relative flex flex-col jusity-center w-[90vw] max-w-[560px] p-[28px] md:p-[16px] rounded-[8px] md:rounded-[2px] bg-white overflow-hidden dropdown-shadow z-50",
-          modal.className
-        )}
-      >
-        <div className="flex flex-row justify-end items-center w-full text-[22px] md:text-[20px] md:leading-[28px] text-[#303549] font-semibold z-50">
-          <button onClick={hideModal}>
-            <CloseIcon
-              className={cx(
-                "w-[16px] md:w-[8px] h-[16px] md:h-[8px]",
-                modal.iconClass
-              )}
-            />
-          </button>
+  return transitions((style, item) => (
+    <>
+      {item && (
+        <div className="fixed top-0 right-0 bottom-0 left-0 flex flex-col items-center justify-center bg-[rgba(0,0,0,0.6)] z-100">
+          <anm.div
+            style={style}
+            className={cx('relative flex flex-col jusity-center rounded-8px bg-#FFFFFF overflow-hidden dropdown-shadow z-200', item.className)}
+          >
+            <div className={cx('px-24px flex justify-between items-center h-40px text-14px leading-22px text-#111111 font-medium', item.headClass)}>
+              {item.title}
+              <span className="i-ep:close-bold text-14px text-#606266 cursor-pointer" onClick={hideModal} />
+            </div>
+            <div className="h-1px bg-#EBEDF0 pointer-events-none" />
+            <div className="pt-24px px-24px">{renderReactNode(item.content)}</div>
+          </anm.div>
         </div>
-        {renderReactNode(modal.content)}
-      </div>
-    </div>
-  );
+      )}
+    </>
+  ));
 };
