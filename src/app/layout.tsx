@@ -1,5 +1,6 @@
 import './globals.css';
 import '/uno.css';
+import { ModalRender } from '@/components/Modal';
 
 export const metadata = {
   title: 'Custome UI',
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="min-h-100vh">{children}</body>
+      <body className="min-h-100vh">
+        <ModalRender />
+        {children}
+      </body>
     </html>
   );
 }
