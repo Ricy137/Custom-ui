@@ -1,10 +1,7 @@
 # Custom-ui
 
-**it's currently just a self-use and experiment project, codes are in a mess and misleading. I will continue developing it and you are welcom finish the README( more like words I told to myself, lol) to learn more about the repo**
-
-## curent develop plan
-* update current components
-* Solve the conflicts and provide docs( not only for demonstration, but also for self-use, lol)
+*on-going projects, codes're frequently changing*
+**The most valuable part of the repo is the README and components folder.**
 
 ## Why do I start the repo?
 
@@ -12,7 +9,8 @@ React components libraries like MUI, ANTD is a good option for fast development 
 
 But work is stressful and in high speed. Fortunately, I managed to get some optimization time for a project and successfully replaced all the MUI components with self made components in that project, which recuded almost 20% of overall JavaScript bundle size (of course which also leads to better performance). I decided to make more advantages of these components and make them more reusable, so I started this repo.
 
-**The ultimate goal of the library is to be highly customizable, include common compoents&interactions and be general (can be used like Apis)**
+## Words after developing the project for a while
+**The original goal of the library is to be highly customizable, include common compoents&interactions and be general (can be used like Apis).** However, in my real work, I met different needs for the same component in different projects, it's hard to find a one for all solution, or develop one component library for all projects. So I gradually have the idea that the ability of developing and designing the component library is more important than the component library itself.  I would still develop the project, but I also started writing my thoughts while coding, you can read more about it here: https://app.t2.world/article/clrv1kk0j3836220mcwgtkgmbv  (currently, this is the only article now).
 
 ## Conflicts and thoughts
 
