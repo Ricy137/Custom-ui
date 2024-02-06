@@ -1,7 +1,7 @@
 # Custom-ui
 
 *on-going projects, codes're frequently changing*
-**The most valuable part of the repo is the README and components folder.**
+**The most valuable part of the repo is the README and src/components folder.**
 
 ## Why do I start the repo?
 
