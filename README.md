@@ -3,6 +3,9 @@
 *on-going projects, codes're frequently changing*
 **The most valuable part of the repo is the README and src/components folder.**
 
+## Todos
+[] Docs and display website
+
 ## Why do I start the repo?
 
 React components libraries like MUI, ANTD is a good option for fast development phase, but they're also large and hard to customize. So I developed custom-ui since a customized component library will provide the minizest size which is good for performance, it will also be much easier for me to customize these components as well as optimize them and it would be a good way to level up my skills as a frontend engineer.
