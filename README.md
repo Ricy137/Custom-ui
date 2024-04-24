@@ -4,7 +4,8 @@
 **The most valuable part of the repo is the README and src/components folder.**
 
 ## Todos
-[] Docs and display website
+[] overflow of popup
+[] select wrap up for re-usable
 
 ## Why do I start the repo?
 
