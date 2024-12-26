@@ -14,13 +14,13 @@
     "@floating-ui/react": "^0.24.8",
     "@react-spring/web": "^9.7.2",
     "@types/node": "20.0.0",
-    "@types/react": "18.2.5",
-    "@types/react-dom": "18.2.3",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2",
     "clsx": "^1.2.1",
     "lodash-es": "^4.17.21",
-    "next": "13.4.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "next": "15.1.2",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-hook-form": "^7.51.3",
     "react-use-clipboard": "^1.0.9",
     "recoil": "^0.7.7",
@@ -33,5 +33,11 @@
     "@unocss/cli": "^0.51.8",
     "@unocss/postcss": "^0.51.12",
     "unocss": "^0.51.8"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.0.2",
+      "@types/react-dom": "19.0.2"
+    }
   }
 }

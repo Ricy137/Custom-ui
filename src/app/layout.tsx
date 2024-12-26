@@ -4,7 +4,7 @@ import { ModalRender } from '@/components/Modal';
 
 export const metadata = {
   title: 'Custome UI',
-  description: 'react component library by Ricy',
+  description: 'react component library by Ricy'
 };
 
 export default function RootLayout({

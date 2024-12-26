@@ -86,7 +86,7 @@ export const ModalRender: React.FC = () => {
     <>
       {item && (
         // <div className="fixed top-0 right-0 bottom-0 left-0 flex flex-col items-center justify-center bg-[rgba(0,0,0,0.6)] z-100">
-        <FloatingOverlay
+        (<FloatingOverlay
           lockScroll
           style={{ background: 'rgba(0, 0, 0, 0.6)' }}
           className="flex flex-col items-center justify-center"
@@ -122,7 +122,7 @@ export const ModalRender: React.FC = () => {
             </div>
             {/* </div> */}
           </FloatingFocusManager>
-        </FloatingOverlay>
+        </FloatingOverlay>)
       )}
     </>
   ));

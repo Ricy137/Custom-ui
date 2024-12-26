@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, type JSX } from 'react';
 import cx from 'clsx';
 import TabNavItem from './TabNavItem';
 import TabContent from './TabContent';

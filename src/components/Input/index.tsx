@@ -21,7 +21,7 @@ export type Props = OverWrite<
   {
     error?: string;
     wrapperClassName?: string;
-    outerPlaceholder?: ReactElement;
+    outerPlaceholder?: ReactElement<any>;
     prefixIcon?: string;
     size?: "normal" | "small" | "medium";
     clearIcon?: "close" | "garbage";

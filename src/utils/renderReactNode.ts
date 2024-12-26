@@ -5,7 +5,7 @@ const renderReactNode = (
   ele: ReactNode | Function,
   props?: Record<string, any>
 ) => {
-  let node: React.ReactElement;
+  let node: React.ReactElement<any>;
   if (typeof ele === "function") {
     node = ele();
   } else if (
@@ -15,9 +15,9 @@ const renderReactNode = (
     node = (ele as any).render();
   } else {
     if (!props) {
-      node = ele as ReactElement;
+      node = ele as ReactElement<any>;
     } else {
-      node = cloneElement(ele as ReactElement, props);
+      node = cloneElement(ele as ReactElement<any>, props);
     }
   }
 
