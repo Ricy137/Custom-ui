@@ -13,7 +13,7 @@ import cx from 'clsx';
 import { uniqueId } from 'lodash-es';
 import { useTransition, animated as anm } from '@react-spring/web';
 import { create } from 'zustand';
-import { transitionAnimation } from '@/components/Animation';
+import { transitionAnimation, AnimatedDiv } from '@/components/Animation';
 import { CloseIcon } from '../Icons';
 import renderReactNode from '@/utils/renderReactNode';
 
@@ -93,7 +93,7 @@ export const ModalRender: React.FC = () => {
         >
           <FloatingFocusManager context={context}>
             <div ref={refs.setFloating} {...getFloatingProps()}>
-              <anm.div
+              <AnimatedDiv
                 style={{ ...style }}
                 className={cx(
                   'relative flex flex-col jusity-center rounded-8px bg-#FFFFFF overflow-hidden dropdown-shadow z-200',
@@ -118,7 +118,7 @@ export const ModalRender: React.FC = () => {
                 <div className="pt-24px px-24px">
                   {renderReactNode(item.content)}
                 </div>
-              </anm.div>
+              </AnimatedDiv>
             </div>
             {/* </div> */}
           </FloatingFocusManager>

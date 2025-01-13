@@ -2,7 +2,7 @@
 import React, { type HTMLAttributes, type ReactNode } from "react";
 import cx from "clsx";
 import { animated, useSpring } from "@react-spring/web";
-import { rotate } from "../Animation";
+import { rotate, AnimatedDiv } from "@/components/Animation";
 import "./index.css";
 
 interface SpinProps extends HTMLAttributes<HTMLDivElement> {
@@ -20,7 +20,7 @@ const Spin: React.FC<SpinProps> = ({
 }) => {
   const springs = useSpring(springConf ? { ...springConf } : { ...rotate });
   return (
-    <animated.span
+    <AnimatedDiv
       style={{ ...springs }}
       className={cx("relative flex justify-center items-center", className)}
       {...props}
@@ -32,7 +32,7 @@ const Spin: React.FC<SpinProps> = ({
           <circle cx="50" cy="50" r="20" fill="none" className="path" />
         </svg>
       )}
-    </animated.span>
+    </AnimatedDiv>
   );
 };
 

@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "unocss:dev": "unocss \"./**/*.tsx\" --watch",
-    "unocss:build": "unocss \"./**/*.tsx\"",
+    "uno:dev": "unocss \"./**/*.tsx\" --watch",
+    "uno:build": "unocss \"./**/*.tsx\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.24.8",
-    "@react-spring/web": "^9.7.2",
+    "@react-spring/web": "^9.7.5",
     "@types/node": "20.0.0",
     "@types/react": "19.0.2",
     "@types/react-dom": "19.0.2",
