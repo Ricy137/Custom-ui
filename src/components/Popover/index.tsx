@@ -24,10 +24,9 @@ import {
   FloatingArrowProps,
 } from '@floating-ui/react';
 
-//Only to be used for interaction Popover
 interface ArrowProps
   extends Omit<FloatingArrowProps, 'context'>,
-    SVGAttributes<SVGSVGElement> {
+  SVGAttributes<SVGSVGElement> {
   height?: number;
   width?: number;
   strokeWidth?: number;
@@ -39,7 +38,8 @@ export interface PopoverProps extends PropsWithChildren {
   Content: React.ReactNode;
   options?: Partial<UseFloatingOptions>;
   trigger?: 'click' | 'hover' | 'focus';
-  controledOpen?: boolean;
+  // TODO:Attention Not so sure what's the initial intention of `controledOpen` prop
+  // controledOpen?: boolean;
   hasArrow?: boolean;
   offsetOptions?: OffsetOptions;
   transitionStylesProps?: UseTransitionStylesProps;
@@ -52,7 +52,7 @@ const Popover: React.FC<PopoverProps> = ({
   Content,
   options,
   trigger,
-  controledOpen = true,
+  // controledOpen = true,
   hasArrow,
   arrowProps,
   offsetOptions,
@@ -103,7 +103,7 @@ const Popover: React.FC<PopoverProps> = ({
       <div ref={refs.setReference} {...getReferenceProps()}>
         {children}
       </div>
-      {controledOpen && isOpen && isMounted && (
+      {isOpen && isMounted && (
         <div
           ref={refs.setFloating}
           style={{ ...floatingStyles, ...styles }}

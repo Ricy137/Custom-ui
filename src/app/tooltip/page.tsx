@@ -10,7 +10,7 @@ const TooltipPage: React.FC = () => {
             Left suctomized Popover 
           </div>
         }
-        trigger="click"
+        trigger="hover"
         options={{
           placement: "left",
         }}
