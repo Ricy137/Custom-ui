@@ -29,7 +29,7 @@ const ToolTip: React.FC<
       Content={
         <div
           className={cx(
-            "px-8px flex items-center h-32px text-14px leading-22px text-#FFFFFF bg-#323233 rounded-2px no-wrap",
+            "px-[8px] flex items-center h-[32px] text-[14px] leading-[22px] text-[#FFFFFF] bg-[#323233] rounded-[2px] no-wrap",
             className
           )}
         >
