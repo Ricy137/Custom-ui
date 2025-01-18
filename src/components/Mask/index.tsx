@@ -36,7 +36,7 @@ const Mask = ({
       item && (
         <AnimatedDiv
           className={cx(
-            "fixed left-0 top-0 w-full h-full bg-black bg-opacity-40 z-[200] contain-strict",
+            "fixed left-0 top-0 w-full h-full bg-[rgba(0,0,0,0.4)] z-[200] contain-strict",
             className
           )}
           style={{ ...style, ...styles }}
