@@ -18,7 +18,7 @@ import { CloseIcon } from '../Icons';
 import renderReactNode from '@/utils/renderReactNode';
 
 interface Modal {
-  title: string;
+  title?: string;
   headClass?: string;
   content: ReactNode;
   className?: string;
@@ -85,7 +85,6 @@ export const ModalRender: React.FC = () => {
   return transitions((style, item) => (
     <>
       {item && (
-        // <div className="fixed top-0 right-0 bottom-0 left-0 flex flex-col items-center justify-center bg-[rgba(0,0,0,0.6)] z-100">
         (<FloatingOverlay
           lockScroll
           style={{ background: 'rgba(0, 0, 0, 0.6)' }}
@@ -96,31 +95,31 @@ export const ModalRender: React.FC = () => {
               <AnimatedDiv
                 style={{ ...style }}
                 className={cx(
-                  'relative flex flex-col jusity-center rounded-8px bg-#FFFFFF overflow-hidden dropdown-shadow z-200',
+                  'relative flex flex-col jusity-center rounded-[8px] bg-[#FFFFFF] overflow-hidden dropdown-shadow z-[200]',
                   item.className
                 )}
               >
                 <div
                   className={cx(
-                    'px-24px flex justify-between items-center h-40px text-14px leading-22px text-#111111 font-medium',
+                    'px-[24px] flex justify-between items-center h-[40px] text-[14px] leading-[22px] text-[#111111] font-medium',
                     item.headClass
                   )}
                 >
                   {item.title}
                   <div
-                    className="text-14px text-#606266 cursor-pointer"
+                    className="text-[14px] text-[#606266] cursor-pointer"
                     onClick={hideModal}
                   >
                     <CloseIcon />
                   </div>
                 </div>
-                <div className="h-1px bg-#EBEDF0 pointer-events-none" />
-                <div className="pt-24px px-24px">
+                {/* Divider between header and body */}
+                <div className="h-[1px] bg-[#EBEDF0] pointer-events-none" />
+                <div className="pt-[24px] px-[24px]">
                   {renderReactNode(item.content)}
                 </div>
               </AnimatedDiv>
             </div>
-            {/* </div> */}
           </FloatingFocusManager>
         </FloatingOverlay>)
       )}
