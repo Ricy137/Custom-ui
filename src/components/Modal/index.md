@@ -16,3 +16,6 @@ Display a modal dialog box. It exports `showModal` and `hideModal` functions to 
 * All modal states are currently managed by zustand, but can be replaced by any global state management library. Or, Vanilla JavaScript is a better option.
 * Using `react-spring` (`useTransition`) for entering & disappearing animations of the modal according to state.
 * Using `floating-ui` for creating floating layer and interaction control, such as `useDismiss` for closing modal when clicking outside of the modal.
+
+## Additional thoughts:
+For different projects using different libraries. You can replace `zustand` with Jotai or simply use `context` according to your project. Additionally, `react-spring` maybe overkilled here. A simple CSS animation can be used to replace it. The repo's codes only provided the basic structure/idea of how to develop a modal component. You can customize it according to your project's needs.
