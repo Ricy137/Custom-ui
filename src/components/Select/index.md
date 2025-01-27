@@ -5,7 +5,11 @@ A Select component
 ## How to use
 
 - A customizable Select for displaying choices and current selected options/placeholder.
-- Currently it's just a single select dropdown ( Radio ), TODO: add multi-select dropdown
+- Set `mode` to 'multiple' for multiple selections. The default `mode` is 'single'
+- Set `options` to an array of options to display in the dropdown, and you may want to an array of options as default value
+- If you want to customize the option item, you can pass `dropdownClassName` to the component
+- If you want to customize the select input, you can pass `className` to the component
+- Additional customized style may be applied directly to the component as needed
 
 ## How's it developed
 

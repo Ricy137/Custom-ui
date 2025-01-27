@@ -33,6 +33,14 @@ const SelectPage: React.FC = () => {
           //general use
           onChange={handleOnChange}
         />
+        <Select
+          options={DummyOptions}
+          mode='multiple'
+          //react-hook-form
+          // {...register('selectData', { required: true })}
+          //general use
+          onChange={handleOnChange}
+        />
         <input type="submit" value="submit" />
       </form>
     </div>

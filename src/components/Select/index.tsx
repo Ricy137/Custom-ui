@@ -22,7 +22,9 @@ type SelectProps = OverWrite<
     placeholder?: string;
     placement?: Placement;
     options: Option[];
-    defaultValue?: Option;
+    defaultValue?: Option[];
+    mode?: 'single' | 'multiple';
+    optionClassName?: string;
   }
 >;
 
@@ -31,16 +33,18 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
     {
       options,
       className,
+      optionClassName,
       defaultValue,
       placeholder = 'Select',
       placement = 'bottom',
+      mode = 'single',
       onChange,
       name,
       ...props
     },
     ref
   ) => {
-    const [selectedOption, setSelectedOption] = useState<Option | undefined>(
+    const [selectedOptions, setSelectedOptions] = useState<Option[] | undefined>(
       defaultValue
     );
     const [isOpen, setIsOpen] = useState(false);
@@ -72,11 +76,19 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
 
     const handleSelect = useCallback(
       (option: Option) => {
-        setSelectedOption(option);
+        let newVal;
+        if (selectedOptions?.some((ele) => ele.value === option.value)) {
+          newVal = selectedOptions?.filter(
+            (ele) => ele.value !== option.value
+          )
+        } else {
+          newVal = mode === 'single' ? [option] : [...(selectedOptions || []), option];
+        }
+        setSelectedOptions(newVal);
         setIsOpen(false);
-        onChange?.({ target: { value: option.value, name } } as any);
+        onChange?.({ target: { value: newVal, name } } as any);
       },
-      [onChange]
+      [onChange, selectedOptions]
     );
 
     // const handleClear = useCallback((e: MouseEvent) => {
@@ -97,8 +109,8 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         // onMouseEnter={handleMouseEnter}
         // onMouseLeave={handleMouseLeave}
         >
-          {selectedOption ? (
-            <span className="text-[#323233]">{selectedOption.label}</span>
+          {selectedOptions ? (
+            <span className="text-[#323233]">{selectedOptions.map((opts) => opts.label).join(', ')}</span>
           ) : (
             <span className="text-[#C1C2C5]">{placeholder}</span>
           )}
@@ -128,7 +140,12 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             {options.map((option) => (
               <div
                 key={option.value}
-                className="pl-[12px] flex items-center w-full h-[32px] text-[14px] leading-[22px] text-[#323233] bg-[#FFFFFF] hover:bg-[#FFF6ED] cursor-pointer"
+                className={cx("pl-[12px] flex items-center w-full h-[32px] text-[14px] leading-[22px] text-[#323233] hover:bg-[#FFF6ED] cursor-pointer",
+                  selectedOptions?.some((ele) => ele.value === option.value)
+                    ? 'bg-[#FFF6ED]'
+                    : 'bg-[#FFFFFF]',
+                  optionClassName
+                )}
                 onClick={() => handleSelect(option)}
               >
                 {option.label}
