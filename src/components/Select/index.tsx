@@ -44,7 +44,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
       defaultValue
     );
     const [isOpen, setIsOpen] = useState(false);
-    const [isHover, setIsHover] = useState(false);
+    // const [isHover, setIsHover] = useState(false);
 
     const { refs, floatingStyles, context } = useFloating({
       middleware: [offset(4)],
@@ -57,13 +57,13 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const click = useClick(context, { event: 'mousedown' });
     const dismiss = useDismiss(context, { outsidePressEvent: 'mousedown' });
 
-    const handleMouseEnter = useCallback(() => {
-      setIsHover(true);
-    }, []);
+    // const handleMouseEnter = useCallback(() => {
+    //   setIsHover(true);
+    // }, []);
 
-    const handleMouseLeave = useCallback(() => {
-      setIsHover(false);
-    }, []);
+    // const handleMouseLeave = useCallback(() => {
+    //   setIsHover(false);
+    // }, []);
 
     const { getReferenceProps, getFloatingProps } = useInteractions([
       click,
@@ -94,8 +94,8 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
             isOpen && 'border-[#FFA14A]',
             className
           )}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+        // onMouseEnter={handleMouseEnter}
+        // onMouseLeave={handleMouseLeave}
         >
           {selectedOption ? (
             <span className="text-[#323233]">{selectedOption.label}</span>
