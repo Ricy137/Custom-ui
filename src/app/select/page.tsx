@@ -10,18 +10,19 @@ const DummyOptions = [
 ];
 
 interface FakeSelectForm {
-  selectData: string;
+  selectData: string[];
+  multipleSelect: string[];
 }
 const SelectPage: React.FC = () => {
-  const { register, handleSubmit: withSubmit } = useForm<FakeSelectForm>();
+  const { register, handleSubmit: withSubmit, formState: { errors } } = useForm<FakeSelectForm>();
 
   const handleSubmit = useCallback((data: FakeSelectForm) => {
     console.log(data);
   }, []);
 
-  const handleOnChange = useCallback((e: any) => {
-    console.log(e.target.value);
-  }, []);
+  // const handleOnChange = useCallback((e: any) => {
+  //   console.log(e.target.value);
+  // }, []);
 
   return (
     <div>
@@ -29,17 +30,17 @@ const SelectPage: React.FC = () => {
         <Select
           options={DummyOptions}
           //react-hook-form
-          // {...register('selectData', { required: true })}
-          //general use
-          onChange={handleOnChange}
+          {...register('selectData', { required: true })}
+        //general use
+        // onChange={handleOnChange}
         />
         <Select
           options={DummyOptions}
           mode='multiple'
           //react-hook-form
-          // {...register('selectData', { required: true })}
-          //general use
-          onChange={handleOnChange}
+          {...register('multipleSelect', { required: true })}
+        //general use
+        // onChange={handleOnChange}
         />
         <input type="submit" value="submit" />
       </form>

@@ -28,7 +28,7 @@ type SelectProps = OverWrite<
   }
 >;
 
-const Select = forwardRef<HTMLSelectElement, SelectProps>(
+const Select: React.FC<SelectProps> =
   (
     {
       options,
@@ -40,9 +40,9 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
       mode = 'single',
       onChange,
       name,
+      ref,
       ...props
-    },
-    ref
+    }
   ) => {
     const [selectedOptions, setSelectedOptions] = useState<Option[] | undefined>(
       defaultValue
@@ -156,6 +156,6 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
       </div>
     );
   }
-);
+
 
 export default Select;

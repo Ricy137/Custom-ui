@@ -10,6 +10,8 @@ A Select component
 - If you want to customize the option item, you can pass `dropdownClassName` to the component
 - If you want to customize the select input, you can pass `className` to the component
 - Additional customized style may be applied directly to the component as needed
+- Currently it accepts `ref` as props but no use for it. Depending on future needs, the `ref` prop may be utilized.
+- For `onChange`, it passed an object with `target` property consisted of `value` and `name`( mimic onChange event of native `select`)
 
 ## How's it developed
 
